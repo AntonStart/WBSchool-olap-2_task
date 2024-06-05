@@ -1,0 +1,40 @@
+mkdir docker-compose-study - создаем директорию для docker-compose
+cd docker-compose-study/ - переходим в директорию для docker-compose
+
+nano docker-compose.yml - создаем фаил docker-compose.yml и открываем его в редакторе
+  
+shift+ins - вставляем в файл yaml представление конфигурации:
+---------------------------------------------------------------------------------------------------
+version: '3.8'
+
+services:
+  clickhouse-server:
+    image: clickhouse/clickhouse-server
+    container_name: clickhouse-server
+    restart: unless-stopped
+    cpus: "1.0"
+    mem_limit: 1g
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - /docker/clickhouse_data:/var/lib/clickhouse
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: unless-stopped
+    cpus: "2.0"
+    mem_limit: 2g
+    ports:
+      - "3000:3000"
+    volumes:
+      - /docker/grafana/:/var/lib/docker/volumes/
+---------------------------------------------------------------------------------------------------
+
+ctrl+o - сохраняем файл
+ctrl+x - выходим из nano
+
+docker-compose up -d - запускаем сервисы в фоновом режиме
+docker-compose restart - рестартнем сервисы
+docker-compose down - остановим и удалим сервисы        
