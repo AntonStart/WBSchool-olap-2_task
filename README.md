@@ -30,6 +30,6 @@ Docker practice
 
 ## Пояснение
 
-1 пункт задания, установил desktop версию docker
-2 пункт - решение в файле [Название ссылки](https://github.com/ваш_пользователь/ваш_репозиторий/путь/к/файлу)
-2 пункт - решение в файле [Название ссылки](https://github.com/ваш_пользователь/ваш_репозиторий/путь/к/файлу), [docker-compose.yml тут]()
+1. пункт - установил desktop версию docker
+2. пункт - решение в файле [docker_conteiners](https://github.com/AntonStart/WBSchool-olap-2_task/blob/main/docker_conteiners)
+3. пункт - решение в файле [docker-compose_conteiners](https://github.com/AntonStart/WBSchool-olap-2_task/blob/main/docker-compose_conteiners), [docker-compose.yml тут](https://github.com/AntonStart/WBSchool-olap-2_task/blob/main/docker-compose.yml)
