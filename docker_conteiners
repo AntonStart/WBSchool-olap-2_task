@@ -1,14 +1,17 @@
-docker pull clickhouse/clickhouse-server
-docker pull grafana/grafana
+docker pull clickhouse/clickhouse-server - качаем образ clickhouse-server
+docker pull grafana/grafana - качаем образ grafana
 
+# создаем и запускаем контейнер clickhouse-server с параметрами(авторестарт, ограничением CPU=1 и memory=1GB, пробрасываем порты и values)
 docker run -d --name clickhouse-server --restart unless-stopped --cpus="1.0" --memory="1g" -p 8123:8123 -p 9000:9000 -v /docker/clickhouse_data:/var/lib/clickhouse clickhouse/clickhouse-server
+
+# создаем и запускаем контейнер grafana с параметрами(авторестарт, ограничением CPU=2 и memory=2GB, пробрасываем порт и values)
 docker run -d --name grafana --restart unless-stopped --cpus="2.0" --memory="2g" -p 3000:3000 -v /docker/grafana/:/var/lib/docker/volumes/ grafana/grafana
 
-docker restart clickhouse-server
-docker restart grafana
+docker restart clickhouse-server - рестарт клика
+docker restart grafana - рестарт grafana
 
-docker stop clickhouse-server
-docker stop grafana
+docker stop clickhouse-server - останавливаем клик
+docker stop grafana - останавливаем графану
 
-docker rm clickhouse-server
-docker rm grafana
+docker rm clickhouse-server - удаляем clickhouse-server
+docker rm grafana - удаляем grafana
